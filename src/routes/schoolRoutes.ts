@@ -1,13 +1,13 @@
-import express, { Router } from 'express';
-import { addSchool, listSchools } from '../controllers/schoolController';
-import { validateAddSchool, validateListSchools } from '../validators/schoolValidator';
+import express, {Router} from "express";
+import {addSchool, listSchools} from "../controllers/schoolController";
+import {
+	validateAddSchool,
+	validateListSchools,
+} from "../validators/schoolValidator";
 
 const router: Router = express.Router();
 
-// Add School endpoint
-router.post('/addSchool', validateAddSchool, addSchool);
+router.post("/addSchool", validateAddSchool, addSchool);
+router.get("/listSchools", validateListSchools, listSchools);
 
-// List Schools endpoint
-router.get('/listSchools', validateListSchools, listSchools);
-
-export { router as schoolRoutes };
+export {router as schoolRoutes};
